@@ -18,7 +18,8 @@ citation_tbl <- tibble(lines = 1:length(citation_txt), cite = citation_txt) %>%
   mutate(cite = str_replace_all(string = cite, pattern = "\"|'", replacement = "")) %>%
   mutate(year = str_extract(cite, '\\d{4}')) %>%
   mutate(page_start = str_extract(cite, '\\s\\d+-')) %>%
-
+  mutate(perf_ref = str_detect(cite, pattern = '[Pp]erformance|PERFORMACE')) %>%
+  
 
 
 
