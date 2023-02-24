@@ -3,7 +3,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 library(stringi)
 library(stringr)
 library(tidyverse)
-
+library(rebus)
 
 # Data Import
 citations <- stri_read_lines("../data/citations.txt", encoding = "Windows-1258")
@@ -14,12 +14,7 @@ mean(str_length(citation_txt))
 # Data Cleaning
 sample(citation_txt, 10)
 
-citation_tbl <- tibble(lines = 1:length(citation_txt), cite = citation_txt)
-
-  
-
-
-
-
+citation_tbl <- tibble(lines = 1:length(citation_txt), cite = citation_txt) %>%
+  mutate(cite = str_replace_all(string = cite, pattern = "\"|'", replacement = "")) %>%
 
 
