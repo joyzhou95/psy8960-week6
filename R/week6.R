@@ -22,3 +22,4 @@ citation_tbl <- tibble(lines = 1:length(citation_txt), cite = citation_txt) %>%
   mutate(title = str_match(cite, pattern = '\\(\\d+\\)\\.\\s([^\\.]+\\.)\\s')[,2]) %>%
   mutate(first_author = str_match(cite, pattern = '^[A-Za-z-]+,\\s[A-Z]\\.\\s?[A-Z]?\\.?'))
 
+sum(!is.na(citation_tbl$first_author))
