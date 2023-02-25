@@ -7,7 +7,7 @@ library(rebus)
 
 # Data Import
 citations <- stri_read_lines("../data/citations.txt", encoding = "Windows-1258")
-citation_txt <- str_emp(citations, pattern = ".+")
+citation_txt <- citations[!stri_isempty(citations)]
 length(citations) - length(citation_txt)
 mean(str_length(citation_txt))
 
